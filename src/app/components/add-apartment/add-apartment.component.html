@@ -1,0 +1,628 @@
+<div class="row m-3">
+  <div class="col-10">
+    <h3>Create New Post</h3>
+    <div class="alert alert-success" *ngIf="saveMsg">
+      <strong>Success!</strong> Post Saved.
+    </div>
+  </div>
+  <div class="col-1">
+    <button class="btn btn-secondary" (click)="close()">Close</button>
+  </div>
+  <div class="col-1">
+    <button
+      class="btn btn-primary ml-4 mr-4"
+      [disabled]="apartmentForm.invalid"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+<div>
+  <div class="container">
+    <form [formGroup]="apartmentForm">
+      <h5>Choose Your Apartment/Building</h5>
+      <div class="row pb-3">
+        <div class="col-6">
+          <div class="form-group required">
+            <label class="control-label" for="apartmentName"
+              >Apartment/Building Name</label
+            >
+            <select
+              class="form-select"
+              formControlName="apartmentName"
+              aria-label="Default select example"
+            >
+              <option value="selectOption" selected>Select an option</option>
+              <option value="apartment1">CBR Estates</option>
+              <option value="apartment2">Gokul Nilayam</option>
+              <option value="apartment3">Srinivas Aprtments</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group required">
+            <label class="control-label" for="enterThename"
+              >Enter the name of your</label
+            >
+            <input
+              type="text"
+              id="enterThename"
+              class="form-control"
+              formControlName="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-6">
+          <div class="form-group required">
+            <h5 class="form-label control-label">Is this a shared property?</h5>
+            <div class="form-check form-check-inline pl-30">
+              <input
+                type="radio"
+                id="sharedYes"
+                class="form-check-input"
+                formControlName="sharedProperty"
+                value="true"
+              />
+              <label for="sharedYes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                id="sharedNo"
+                class="form-check-input"
+                formControlName="sharedProperty"
+                value="false"
+              />
+              <label for="sharedNo">No</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group required">
+            <label class="control-label" for="location">Location</label>
+            <select
+              class="form-select"
+              formControlName="location"
+              aria-label="Default select example"
+            >
+              <option value="HYD">Hyderabad</option>
+              <option value="CHNI">Chennai</option>
+              <option value="BANG">Bangalore</option>
+              <option value="PUNE">Pune</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-12">
+          <h5>Property Location</h5>
+          <div class="form-group required">
+            <label class="control-label" for="streetAddress"
+              >Street Address</label
+            >
+            <input
+              type="text"
+              id="streetAddress"
+              class="form-control"
+              formControlName="streetAddress"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="row">
+          <div class="col-6">
+            <h5>Property Details</h5>
+            <div class="form-group required">
+              <label class="control-label" for="squareFeet">Square Feet</label>
+              <input
+                type="text"
+                id="squareFeet"
+                class="form-control"
+                formControlName="squareFeet"
+              />
+              <div
+                *ngIf="
+                  (apartmentForm.get('squareFeet')?.invalid &&
+                    apartmentForm.get('squareFeet')?.touched) ||
+                  apartmentForm.get('squareFeet')?.dirty
+                "
+              >
+                <small
+                  *ngIf="apartmentForm.get('squareFeet')?.errors?.required"
+                  class="text-danger"
+                  >Square Feet is required</small
+                >
+                <small
+                  *ngIf="apartmentForm.get('squareFeet')?.errors?.pattern"
+                  class="text-danger"
+                  >Please provide Only numbers</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group required">
+              <label class="control-label">Stay/Lease Type</label>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="longTerm"
+                  class="form-check-input"
+                  formControlName="leaseType"
+                  value="longTerm"
+                />
+                <label for="longTerm">Long Term (6+ months)</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="shortTerm"
+                  class="form-check-input"
+                  formControlName="leaseType"
+                  value="shortTerm"
+                />
+                <label for="shortTerm">Short Term</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="both"
+                  class="form-check-input"
+                  formControlName="leaseType"
+                  value="both"
+                />
+                <label for="both">Both</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group required">
+              <label class="control-label">Image Upload</label> <br />
+              <input
+                type="file"
+                class="form-control-file"
+                (change)="onSelectFile($event)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-6">
+          <h5>Expected Rent</h5>
+          <div class="form-group required">
+            <label class="control-label" for="expectedRent"
+              >Expected Rent</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="expectedRent"
+              formControlName="expectedRent"
+            />
+            <div
+              *ngIf="
+                (apartmentForm.get('expectedRent')?.invalid &&
+                  apartmentForm.get('expectedRent')?.touched) ||
+                apartmentForm.get('expectedRent')?.dirty
+              "
+            >
+              <small
+                *ngIf="apartmentForm.get('expectedRent')?.errors?.required"
+                class="text-danger"
+                >Expected Rent is required</small
+              >
+              <small
+                *ngIf="apartmentForm.get('expectedRent')?.errors?.pattern"
+                class="text-danger"
+                >Please provide Only numbers</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="true"
+                id="flexCheckDefault"
+                formControlName="negoiable"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Negotiable
+              </label>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="control-label">Price Mode</label>
+            <div class="form-check">
+              <input
+                type="radio"
+                id="perMonth"
+                class="form-check-input"
+                formControlName="priceMode"
+                value="perMonth"
+              />
+              <label for="perMonth">Per Month</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                id="utilitiesIncluded"
+                class="form-check-input"
+                formControlName="priceMode"
+                value="utilitiesIncluded"
+              />
+              <label for="utilitiesIncluded">Utilities Included in Rent</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-12">
+          <div class="form-group required">
+            <h5 class="control-label">Is the room/apartment furnished?</h5>
+            <div class="form-check">
+              <input
+                type="radio"
+                id="furnishedYes"
+                class="form-check-input"
+                formControlName="furnished"
+                value="true"
+              />
+              <label for="furnishedYes">Yes</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                id="furnishedNo"
+                class="form-check-input"
+                formControlName="furnished"
+                value="false"
+              />
+              <label for="furnishedNo">No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pb-3">
+        <div class="col-12">
+          <div class="form-group required">
+            <h5 class="control-label">Amenities Included</h5>
+            <div class="row" formGroupName="amenities">
+              <div class="col-4" *ngFor="let option of amentiesData">
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    id="{{ option }}"
+                    class="form-check-input"
+                    [formControlName]="option"
+                  />
+                  <label for="{{ option }}">{{ option }}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>Description</h5>
+          <div class="form-group required">
+            <label for="title" class="control-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              formControlName="title"
+            />
+          </div>
+          <div class="form-group required">
+            <label for="description" class="control-label">Description</label>
+            <textarea
+              id="description"
+              class="form-control"
+              formControlName="description"
+              maxlength="1400"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal" #preview>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Preview</h1>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="closePopup()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form [formGroup]="previewForm">
+            {{ previewForm.get("apartmentName")?.value }}
+            <h5>Choose Your Apartment/Building</h5>
+            <div class="row pb-3">
+              <div class="col-6">
+                <div class="form-group required">
+                  <label class="control-label" for="apartmentName"
+                    >Apartment/Building Name</label
+                  >
+                  <select
+                    class="form-select"
+                    formControlName="apartmentName"
+                    aria-label="Default select example"
+                  >
+                    <option value="selectOption" selected>
+                      Select an option
+                    </option>
+                    <option value="apartment1">CBR Estates</option>
+                    <option value="apartment2">Gokul Nilayam</option>
+                    <option value="apartment3">Srinivas Aprtments</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="enterThename">Enter the name of your</label>
+                  <input
+                    type="text"
+                    id="enterThename"
+                    class="form-control"
+                    formControlName="name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-12">
+                <div class="form-group">
+                  <h5 class="form-label">Is this a shared property?</h5>
+                  <div class="form-check form-check-inline pl-30">
+                    <input
+                      type="radio"
+                      id="sharedYes"
+                      class="form-check-input"
+                      formControlName="sharedProperty"
+                      value="true"
+                    />
+                    <label for="sharedYes">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      type="radio"
+                      id="sharedNo"
+                      class="form-check-input"
+                      formControlName="sharedProperty"
+                      value="false"
+                    />
+                    <label for="sharedNo">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-12">
+                <h5>Property Location</h5>
+                <div class="form-group required">
+                  <label class="control-label" for="streetAddress"
+                    >Street Address</label
+                  >
+                  <input
+                    type="text"
+                    id="streetAddress"
+                    class="form-control"
+                    formControlName="streetAddress"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-6">
+                <h5>Property Details</h5>
+                <div class="form-group">
+                  <label for="squareFeet">Square Feet</label>
+                  <input
+                    type="text"
+                    id="squareFeet"
+                    class="form-control"
+                    formControlName="squareFeet"
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label>Stay/Lease Type</label>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      id="longTerm"
+                      class="form-check-input"
+                      formControlName="leaseType"
+                      value="longTerm"
+                    />
+                    <label for="longTerm">Long Term (6+ months)</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      id="shortTerm"
+                      class="form-check-input"
+                      formControlName="leaseType"
+                      value="shortTerm"
+                    />
+                    <label for="shortTerm">Short Term</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      id="both"
+                      class="form-check-input"
+                      formControlName="leaseType"
+                      value="both"
+                    />
+                    <label for="both">Both</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-6">
+                <h5>Expected Rent</h5>
+                <div class="form-group">
+                  <label for="expectedRent">Expected Rent</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="expectedRent"
+                    formControlName="expectedRent"
+                  />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="true"
+                      id="flexCheckDefault"
+                      formControlName="negoiable"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Negotiable
+                    </label>
+                  </div>
+                  <label>Price Mode</label>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      id="perMonth"
+                      class="form-check-input"
+                      formControlName="priceMode"
+                      value="perMonth"
+                    />
+                    <label for="perMonth">Per Month</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      id="utilitiesIncluded"
+                      class="form-check-input"
+                      formControlName="priceMode"
+                      value="utilitiesIncluded"
+                    />
+                    <label for="utilitiesIncluded"
+                      >Utilities Included in Rent</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-12">
+                <div class="form-group">
+                  <h5>Is the room/apartment furnished?</h5>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      id="furnishedYes"
+                      class="form-check-input"
+                      formControlName="furnished"
+                      value="true"
+                    />
+                    <label for="furnishedYes">Yes</label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      id="furnishedNo"
+                      class="form-check-input"
+                      formControlName="furnished"
+                      value="false"
+                    />
+                    <label for="furnishedNo">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-12">
+                <div class="form-group">
+                  <h5>Amenities Included</h5>
+                  <div class="row" formGroupName="amenities">
+                    <div class="col-4" *ngFor="let option of amentiesData">
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          id="{{ option }}"
+                          class="form-check-input"
+                          [formControlName]="option"
+                        />
+                        <label for="{{ option }}">{{ option }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <h5>Description</h5>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    formControlName="title"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea
+                    id="description"
+                    class="form-control"
+                    formControlName="description"
+                    maxlength="1400"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class="form-group">
+                  <img [src]="privewImg" style="height: 150px; width: 230px" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closePopup()">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary" (click)="proceed()">
+          Preceed
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.container {
+  margin-top: 20px;
+  box-shadow: 0 0 10px gray;
+  padding: 20px 15px 20px 15px;
+  height: calc(100vh - 90px);
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+::ng-deep {
+  .form-group.required .control-label:after {
+    color: #d00;
+    content: "*";
+  }
+
+  @media (min-width: 576px) {
+    .modal-dialog {
+      max-width: 80% !important;
+      max-width: cals(100vw -100px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.pl-30 {
+  padding-left: 30px;
+}
+
+.form-check-input {
+  border-color: #979292;
+}

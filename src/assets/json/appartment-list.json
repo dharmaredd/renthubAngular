@@ -1,0 +1,129 @@
+[
+  {
+    "id": 1,
+    "name": "CBR Estates",
+    "description": "2 BHK Flat In Standalonebuilding for Rent In hyderabad",
+    "sharedProperty": "Yes",
+    "streetAddress": "Hyderabad madeena guda",
+    "squareFeet": "1200",
+    "leaseType": "rented",
+    "expectedRent": 25000,
+    "negoiable": "No",
+    "priceMode": "debit",
+    "furnished": "Yes",
+    "amenities": "",
+    "title": "",
+    "markAsFavorite": false,
+    "location": "HYD",
+    "viewDetails": [
+      {
+        "comment": "2 BHK Flat In Standalonebuilding for Rent In hyderabad fully furnished"
+      },
+      {
+        "comment": "2 BHK Flat In Standalonebuilding for Rent In hyderabad Hitech"
+      },
+      {
+        "comment": "2 BHK Flat In Standalonebuilding for Rent In hyderabad JNTU"
+      }
+    ],
+    "img": "https://housing-images.n7net.in/01c16c28/6246d81f289767685d3eeddec20c319d/v0/small/4_bhk_independent_house-for-rent-manikonda-Hyderabad-hall.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Anand Enclave",
+    "description": "3 BHK Flat In Standalonebuilding for Rent In Chennai",
+    "sharedProperty": "Yes",
+    "streetAddress": "Chennai Anna street",
+    "squareFeet": "1000",
+    "leaseType": "rented",
+    "expectedRent": 18000,
+    "negoiable": "Yes",
+    "priceMode": "check",
+    "furnished": "yes",
+    "location": "CHNI",
+    "amenities": "Power backup, Gym",
+    "markAsFavorite": true,
+    "title": "3 BHK Flat In anna street and Standalonebuilding",
+    "viewDetails": [
+      {
+        "comment": "3 BHK Flat In Standalonebuilding for Rent In Chennai anna street"
+      },
+      {
+        "comment": "2 BHK Flat In Standalonebuilding for Rent In Chennai karapakkam"
+      },
+      {
+        "comment": "4 BHK Flat In Standalonebuilding for Rent In Chennai wipro street"
+      }
+    ],
+    "img": "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 3,
+    "name": "Srinivas villas",
+    "description": "villa In bangalore for Rent 3000 sft",
+    "sharedProperty": "Yes",
+    "streetAddress": "Bangalore madeena guda",
+    "squareFeet": "1100",
+    "leaseType": "rented",
+    "expectedRent": 22000,
+    "negoiable": "Yes",
+    "priceMode": "credit",
+    "furnished": "no",
+    "location": "BANG",
+    "amenities": "",
+    "markAsFavorite": true,
+    "title": "",
+    "viewDetails": [
+      {
+        "comment": "villa In Bangalore for Rent 3000 sft G+2 contact the owner for details 1112223334"
+      }
+    ],
+    "img": "https://images.unsplash.com/photo-1602336625187-03e0fc511b98?q=80&w=1919&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 4,
+    "name": "Ram Apartments",
+    "description": "2 BHK Flat In Standalonebuilding for Rent In Pune",
+    "sharedProperty": "Yes",
+    "streetAddress": "Pune vivekananda street",
+    "squareFeet": "1100",
+    "leaseType": "rented",
+    "expectedRent": 15000,
+    "negoiable": "Yes",
+    "priceMode": "credit",
+    "location": "PUNE",
+    "furnished": "Yes",
+    "amenities": "",
+    "markAsFavorite": false,
+    "title": "",
+    "viewDetails": [
+      {
+        "comment": "2 BHK Flat In Standalonebuilding for Rent In Pune flat 1000sft facing east "
+      }
+    ],
+    "img": "https://images.unsplash.com/photo-1485996463739-9cb09adbe6c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 5,
+    "name": "My Home Flats",
+    "description": "2 BHK Flat In Standalonebuilding for Rent In hyderabad",
+    "sharedProperty": "Yes",
+    "streetAddress": "Hyderabad madeena guda",
+    "squareFeet": "1100",
+    "location": "HYD",
+    "leaseType": "rented",
+    "expectedRent": 20000,
+    "negoiable": "Yes",
+    "priceMode": "credit",
+    "furnished": "no",
+    "amenities": "",
+    "title": "",
+    "markAsFavorite": false,
+    "viewDetails": [
+      {
+        "comment": "2 BHK Flat In Standalonebuilding for Rent In hyderabad flat 1000sft facing north"
+      }
+    ],
+    "img": "https://images.unsplash.com/photo-1602082550187-3f954840a0f7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+]
